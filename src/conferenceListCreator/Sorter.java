@@ -31,7 +31,6 @@ public class Sorter {
 				ir--;
 			}
 		}
-
 		QuickSort(people, comparator, left, il - 1);
 		QuickSort(people, comparator, il, right);
 	};

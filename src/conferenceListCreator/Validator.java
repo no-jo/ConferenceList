@@ -3,24 +3,18 @@ package conferenceListCreator;
 import java.util.List;
 import java.util.regex.Pattern;
 
+//FIXME could use abstract validator NOTE: can be see as ravioli pasta code
 public class Validator {
 	
-	private List<Person> list;
-	
-	public Validator(List<Person> people) {
-		list = people;
+	public static boolean isInputListDivisor(List<Person> people, int k) {
+		return (k != 0 && people.size()%k == 0);
 	}
 
-	public boolean isValid(String input) {
+	public static boolean isRepresentedAsPositiveInteger(String control) {
+		return Pattern.matches("[\\d]+", control);
+	}
 
-		if (input.length() == 1 && Character.isLetter(input.charAt(0))) {
-			return true;
-		} else if (Pattern.matches("[\\d]+", input)) {
-			int k = Integer.parseInt(input);
-			if (list.size()%k == 0) {
-				return true;
-			}
-		}
-		return false;
+	public static boolean isSingleLetter(String control) {
+		return control.length() == 1 && Character.isLetter(control.charAt(0));
 	}
 }

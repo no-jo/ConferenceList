@@ -30,7 +30,7 @@ public class FilterTest extends Filter {
 	}
 
 	@Test
-	public void RegularCase() {
+	public void FilterMoreThanOneName() {
 		// given
 		ArrayList<Person> people = new ArrayList<Person>();
 		people.add(new Person("Tomek,Momon,1980-12-22"));
@@ -39,8 +39,7 @@ public class FilterTest extends Filter {
 		people.add(new Person("Marta,Andrut,1977-02-02"));
 		people.add(new Person("Marta,Baban,1990-01-09"));
 		people.add(new Person("Marcin,Bednarek,1989-04-12"));
-		// arraylist which reslts here is not in the same order, I do not know
-		// why it is changed
+
 		ArrayList<Person> expected = new ArrayList<Person>();
 		expected.add(new Person("Kamila,Bednarek,1999-07-02"));
 		expected.add(new Person("Marta,Baban,1990-01-09"));
@@ -51,4 +50,16 @@ public class FilterTest extends Filter {
 		assertTrue(result.equals(expected));
 	}
 
+	@Test
+	public void FilterToEmptyList() {
+		// given
+		ArrayList<Person> people = new ArrayList<Person>();
+		people.add(new Person("Kamila,Bednarek,1999-07-02"));
+		people.add(new Person("Marta,Baban,1990-01-09"));
+		people.add(new Person("Marcin,Bednarek,1989-04-12"));
+		// when
+		List<Person> result = Filter.selectByLastName(people, 's');
+		// then
+		assertTrue(result.isEmpty());
+	}
 }

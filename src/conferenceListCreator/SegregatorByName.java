@@ -2,12 +2,12 @@ package conferenceListCreator;
 
 import java.util.List;
 
-public class SegregationByName extends AbstractSegregator {
+public class SegregatorByName implements Segregator {
 
 	private List<Person> people;
 	private char parameter;
 	
-	public SegregationByName(List<Person> list, char c) {
+	public SegregatorByName(List<Person> list, char c) {
 		people = list;
 		parameter = Character.toUpperCase(c);
 	};
@@ -18,7 +18,6 @@ public class SegregationByName extends AbstractSegregator {
 		CompareFirstName comp = new CompareFirstName();
 		Sorter.QuickSort(result, comp);
 		IOFileManager.writeFile(result, "uczestnicy_" + parameter + ".csv");
-		UIController.displayEndMessage();
 	}
 
 }

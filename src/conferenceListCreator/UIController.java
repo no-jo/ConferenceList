@@ -1,32 +1,50 @@
 package conferenceListCreator;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class UIController {
 
-	public static boolean getUserInput(Validator valid) {
+	//FIXME what about constructor with "people" and getting rid of static method
+	public static Segregator getSegregatorBasedOnUserInstruction(List<Person> people) {
 
-		System.out.println("Provide parameter for segregation");
 		Scanner scan = new Scanner(System.in);
 		String control;
-		boolean param;
+		Segregator segr;
 
+		System.out.println("Provide parameter for segregation");
+
+		// FIXME maybe it's a good idea to change while statement to practical one
 		while (true) {
 			control = scan.nextLine();
-			param = valid.isValid(control);
-			if (param) {
-				System.out.println("Provide correct parameter for segregation");;
-			}
-			else {
+			if (Validator.isSingleLetter(control)) {
+				// FIXME consider using factory method in factory class
+				segr = new SegregatorByName(people, control.charAt(0));
 				break;
+			} else if (Validator.isRepresentedAsPositiveInteger(control)) {
+				int k = 0;
+				try {
+					k = Integer.parseInt(control);
+				} catch (Exception e) {
+					System.out.println("Provided number is too big.");
+					System.out.println("Provide correct parameter for segregation");
+				}
+				if (Validator.isInputListDivisor(people, k)) {
+					// FIXME consider using factory method in factory class
+					segr = new SegregatorByNumber(people, k);
+					break;
+				}
 			}
-		}		
+			System.out.println("Provide correct parameter for segregation");
+
+		}
 		scan.close();
-		return param;
+		return segr;
 	}
 
+	// FIXME Change place of displaying it
 	public static void displayEndMessage() {
 		System.out.println("List(s) successfully created");
 	}
-	
+
 }
