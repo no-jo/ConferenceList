@@ -2,7 +2,7 @@ package conferenceListCreator;
 
 import java.util.Scanner;
 
-public class UIService {
+public class UIController {
 
 	public static boolean getUserInput(Validator valid) {
 

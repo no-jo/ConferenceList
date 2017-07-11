@@ -12,8 +12,8 @@ public class StartUp {
 		
 		//IOFileManager file = new IOFileManager();
         List<Person> people = IOFileManager.readFile();
-        Validator validator = new Validator(people);
-        UIService.getUserInput(validator);
+        //Validator validator = new Validator(people);
+        //UIController.getUserInput(validator);
         
         for (Person p : people) {
         	System.out.println(p);
@@ -28,10 +28,13 @@ public class StartUp {
 //        CompareLastName comp = new CompareLastName();
 //        Sorter s = new Sorter();
 //        s.QuickSort(people, comp);
-		List<Person> result = Filter.selectByLastName(people, 'B');
-        for (Person p : result) {
-        	System.out.println(p);
-        }
+		//List<Person> result = Filter.selectByLastName(people, 'B');
+        
+        AbstractSegregator segr = new SegregationByName(people, 'b');
+        segr.createListsInFiles();
+//        for (Person p : result) {
+//        	System.out.println(p);
+//        }
         
        // file.writeFile(people, "conference_list.csv");
         
