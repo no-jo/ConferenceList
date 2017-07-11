@@ -4,11 +4,11 @@ import java.util.*;
 
 public class Sorter {
 
-	public void QuickSort(List<Person> people, Comparator<Person> comparator) {
+	static public void QuickSort(List<Person> people, Comparator<Person> comparator) {
 		QuickSort(people, comparator, 0, people.size() - 1);
 	};
 
-	private void QuickSort(List<Person> people, Comparator<Person> comparator, int left, int right) {
+	static private void QuickSort(List<Person> people, Comparator<Person> comparator, int left, int right) {
 
 		if (left >= right) {
 			return;

@@ -10,9 +10,9 @@ public class StartUp {
 
 	public static void main(String[] args) throws IOException, ParseException {
 		
-		IOFileManager file = new IOFileManager();
-        List<Person> people = file.readFile();
-        ControlParameterValidator validator = new ControlParameterValidator(people);
+		//IOFileManager file = new IOFileManager();
+        List<Person> people = IOFileManager.readFile();
+        Validator validator = new Validator(people);
         UIService.getUserInput(validator);
         
         for (Person p : people) {

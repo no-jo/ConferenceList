@@ -12,7 +12,7 @@ public class IOFileManager {
 
 	static final String PATH = "konferencja.csv";
 
-	public List<Person> readFile() throws IOException {
+	static public List<Person> readFile() throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(PATH)));
 		String line;
 		List<Person> people = new ArrayList<Person>();
@@ -29,7 +29,7 @@ public class IOFileManager {
 		return people;
 	}
 
-	public void writeFile(List<Person> people, String filename) {
+	static public void writeFile(List<Person> people, String filename) {
 		try {
 			PrintWriter writer = new PrintWriter(filename, "UTF-8");
 			

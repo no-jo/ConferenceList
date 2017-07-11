@@ -8,7 +8,7 @@ public class Filter {
 	
 	public static List<Person> selectByLastName(List<Person> people, char c) {
 		List<Person> result = people.stream()
-		        .filter(p -> p.getLastName().charAt(0) == c)
+		        .filter(p -> Character.toLowerCase(p.getLastName().charAt(0)) == Character.toLowerCase(c))
 		        .map(person -> new Person(person))
 		        .collect(Collectors.toCollection(ArrayList::new));
 		return result;
