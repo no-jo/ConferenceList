@@ -1,23 +1,30 @@
 package conferenceListCreator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SegregatorByName implements Segregator {
 
 	private List<Person> people;
-	private char parameter;
+	private Object parameter;
 	
-	public SegregatorByName(List<Person> list, char c) {
+	public SegregatorByName(List<Person> list, Character c) {
 		people = list;
 		parameter = Character.toUpperCase(c);
 	};
 	
 	@Override
-	public void createListsInFiles() {
-		List<Person> result = Filter.selectByLastName(people, parameter);
+	public List<List<Person>> createLists() {
+		List<List<Person>> groups = new ArrayList<List<Person>>();;
+		List<Person> filtered = Filter.selectByLastName(people, (Character)parameter);
 		CompareFirstName comp = new CompareFirstName();
-		Sorter.QuickSort(result, comp);
-		IOFileManager.writeFile(result, "uczestnicy_" + parameter + ".csv");
+		Sorter.QuickSort(filtered, comp);
+		groups.add(filtered);
+		return groups;
+	};
+	
+	public Object getParameter() {
+			return parameter;
+		};
 	}
 
-}

@@ -1,17 +1,25 @@
 package conferenceListCreator;
 
-import java.io.*;
 import java.util.*;
 
 
 
 public class StartUp {
 
-	public static void main(String[] args) throws IOException {		
-		List<Person> people = IOFileManager.readFile();
-		Segregator segr = UIController.getSegregatorBasedOnUserInstruction(people);
-        segr.createListsInFiles();      
-        // FIXEM use writeFile method using list of lists
+	public static void main(String[] args)  {
+		
+		List<Person> people = null;
+		try {
+			people = IOFileManager.readFile();
+		} catch (Exception e) {
+			System.out.println("File could not be read.");
+			System.exit(1);
+		}
+		Segregator segr = ConferenceListSelector.getSegregatorBasedOnUserInstruction(people);
+		List<List<Person>> result = segr.createLists();
+		Object parameter = segr.getParameter();
+        IOFileManager.writeFiles(result, parameter);
+        ConsolePrinter.print(result, parameter);
 	}
 
 }

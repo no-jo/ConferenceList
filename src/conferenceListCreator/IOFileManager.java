@@ -11,6 +11,7 @@ import java.util.List;
 public class IOFileManager {
 
 	static final String PATH = "konferencja.csv";
+	static final String WRITE_PATH = "uczestnicy_";
 
 	static public List<Person> readFile() throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(PATH)));
@@ -29,17 +30,24 @@ public class IOFileManager {
 		return people;
 	}
 
-	static public void writeFile(List<Person> people, String filename) {
-		try {
-			PrintWriter writer = new PrintWriter(filename, "UTF-8");
-			
-			for (Person p : people) {
-	        	writer.printf("%s" + System.lineSeparator(), p);
-			}			
-			writer.close();
-			
-		} catch (IOException e) {
-			System.out.println("Nie można zapisać pliku");
+	static public void writeFiles(List<List<Person>> groups, Object name_appendix) {
+
+		int i = 1;
+		for (List<Person> people : groups) {
+			try {
+				PrintWriter writer = new PrintWriter(
+						WRITE_PATH + "_" + name_appendix.toString() + (i > 1 ? "_" + Integer.toString(i) : "") + ".csv",
+						"UTF-8");
+
+				for (Person p : people) {
+					writer.printf("%s" + System.lineSeparator(), p);
+				}
+				writer.close();
+
+			} catch (IOException e) {
+				System.out.println("Nie można zapisać pliku");
+			}
+			i++;
 		}
 
 	}

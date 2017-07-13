@@ -3,7 +3,8 @@ package conferenceListCreator;
 import java.util.List;
 import java.util.regex.Pattern;
 
-//FIXME could use abstract validator NOTE: can be see as ravioli pasta code
+//TODO might consider abstract validator and concrete object fo each validation
+
 public class Validator {
 	
 	public static boolean isInputListDivisor(List<Person> people, int k) {
