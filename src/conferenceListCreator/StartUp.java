@@ -17,9 +17,10 @@ public class StartUp {
 		}
 		Segregator segr = ConferenceListSelector.getSegregatorBasedOnUserInstruction(people);
 		List<List<Person>> result = segr.createLists();
-		Object parameter = segr.getParameter();
+		Thing parameter = segr.getParameter();
         IOFileManager.writeFiles(result, parameter);
         ConsolePrinter.print(result, parameter);
+        System.out.println("List(s) successfully created.");
 	}
 
 }

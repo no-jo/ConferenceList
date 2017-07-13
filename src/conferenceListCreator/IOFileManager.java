@@ -30,7 +30,7 @@ public class IOFileManager {
 		return people;
 	}
 
-	static public void writeFiles(List<List<Person>> groups, Object name_appendix) {
+	static public void writeFiles(List<List<Person>> groups, Thing name_appendix) {
 
 		int i = 1;
 		for (List<Person> people : groups) {

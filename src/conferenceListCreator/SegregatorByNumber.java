@@ -6,11 +6,11 @@ import java.util.List;
 public class SegregatorByNumber implements Segregator {
 
 	private List<Person> people;
-	private Object parameter;
+	private Number parameter;
 	
 	public SegregatorByNumber(List<Person> list, Integer param) {
 		people = list;
-		parameter = param;
+		parameter = new Number(param);
 	}
 
 	@Override
@@ -19,13 +19,13 @@ public class SegregatorByNumber implements Segregator {
 		List<List<Person>> groups = new ArrayList<List<Person>>();
 		CompareLastName comp = new CompareLastName();
 		Sorter.QuickSort(people, comp);
-		for (int i = 0; i < people.size()-1; i = i + (Integer)parameter){
-			groups.add(people.subList(i, i + (Integer)parameter));	
+		for (int i = 0; i < people.size()-1; i = i + parameter.getValue()){
+			groups.add(people.subList(i, i + parameter.getValue()));	
 		}
 		return groups;
 	}
 
-	public Object getParameter() {
+	public Number getParameter() {
 		return parameter;
 	};
 	
