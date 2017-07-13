@@ -7,10 +7,12 @@ public class SegregatorByNumber implements Segregator {
 
 	private List<Person> people;
 	private Number parameter;
+	private PrintingProperty print;
 	
 	public SegregatorByNumber(List<Person> list, Integer param) {
 		people = list;
 		parameter = new Number(param);
+		print = PrintingProperty.NOTPRINTABLE;
 	}
 
 	@Override
@@ -28,5 +30,9 @@ public class SegregatorByNumber implements Segregator {
 	public Number getParameter() {
 		return parameter;
 	};
+	
+	public PrintingProperty isPrintable() {
+		return print;
+	}
 	
 }

@@ -7,6 +7,8 @@ public interface Segregator {
 	public abstract List<List<Person>> createLists() throws NumberFormatException, UserInputException;
 
 	public abstract Thing getParameter();
+	
+	public abstract PrintingProperty isPrintable();
 
 	public static Segregator createSegregator(List<Person> people, String selector) {
 		if (Validator.isSingleLetter(selector)) {

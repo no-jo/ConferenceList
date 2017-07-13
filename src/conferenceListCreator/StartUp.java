@@ -19,7 +19,7 @@ public class StartUp {
 		List<List<Person>> result = segr.createLists();
 		Thing parameter = segr.getParameter();
         IOFileManager.writeFiles(result, parameter);
-        ConsolePrinter.print(result, parameter);
+        ConsolePrinter.print(result, segr.isPrintable());
         System.out.println("List(s) successfully created.");
 	}
 

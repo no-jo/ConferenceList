@@ -4,11 +4,11 @@ import java.util.List;
 
 public class ConsolePrinter {
 
-	static public void print(List<List<Person>> groups, Thing selector) {
-		if (groups.size() != 1 || selector instanceof Number) { 
-			//TODO get rid of instance of
+	static public void print(List<List<Person>> groups, PrintingProperty print) {
+		if (print == PrintingProperty.NOTPRINTABLE) { 
 			return;
-		} else {
+		} 
+		if (print == PrintingProperty.PRINTABLE) {
 			for (Person person : groups.get(0)) {
 				System.out.println(person);
 			}
@@ -16,17 +16,17 @@ public class ConsolePrinter {
 		System.out.println();
 	};
 
-	// static public void print(List<List<Person>> groups, Number selector) {
-	//
-	// };
-	//
-	// static public void print(List<List<Person>> groups, Letter selector) {
-	// for (List<Person> alist : groups) {
-	// for (Person person : alist) {
-	// System.out.println(person);
-	// }
-	// System.out.println();
-	// }
-	// };
+//	 static public void print(List<List<Person>> groups, Number selector) {
+//	
+//	 };
+//	
+//	 static public void print(List<List<Person>> groups, Letter selector) {
+//	 for (List<Person> alist : groups) {
+//	 for (Person person : alist) {
+//	 System.out.println(person);
+//	 }
+//	 System.out.println();
+//	 }
+//	 };
 
 }
