@@ -1,5 +1,11 @@
 package conferenceListCreator;
 
+/**
+ * @author JOANNANO
+ * Class wrapping integer to fit the segregator parameter hierarchy. 
+ * Providing only simple constructor, getter and override to toString function.
+ */
+
 public class Number extends Thing {
 	int i;
 	

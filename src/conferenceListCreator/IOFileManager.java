@@ -8,11 +8,21 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author JOANNANO
+ * Class responsible for input and output of lists to and from files.
+ */
+
 public class IOFileManager {
 
 	static final String PATH = "konferencja.csv";
 	static final String WRITE_PATH = "uczestnicy_";
 
+	/**
+	 * Method to read list of objects Person to file.
+	 * @return
+	 * @throws IOException
+	 */
 	static public List<Person> readFile() throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(PATH)));
 		String line;
@@ -30,6 +40,11 @@ public class IOFileManager {
 		return people;
 	}
 
+	/**
+	 * Method to write created lists to files.
+	 * @param groups
+	 * @param name_appendix
+	 */
 	static public void writeFiles(List<List<Person>> groups, Thing name_appendix) {
 
 		int i = 1;

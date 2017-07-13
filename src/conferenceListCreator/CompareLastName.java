@@ -2,6 +2,11 @@ package conferenceListCreator;
 
 import java.util.*;
 
+/**
+ * @author JOANNANO
+ * Custom comparator to compare Last Name first and First Name second.
+ */
+
 public class CompareLastName implements Comparator<Person> {
 
 	@Override

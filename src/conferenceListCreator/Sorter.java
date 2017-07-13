@@ -2,8 +2,18 @@ package conferenceListCreator;
 
 import java.util.*;
 
+/**
+ * Self-built quick sort implementation.
+ * @author JOANNANO
+ *
+ */
 public class Sorter {
 
+	/**
+	 * Method sorting given original list by provided comparator.
+	 * @param people
+	 * @param comparator
+	 */
 	static public void QuickSort(List<Person> people, Comparator<Person> comparator) {
 		QuickSort(people, comparator, 0, people.size() - 1);
 	};

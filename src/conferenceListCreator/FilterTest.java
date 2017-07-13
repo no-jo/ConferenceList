@@ -7,10 +7,15 @@ import java.util.List;
 
 import org.junit.Test;
 
+/**
+ * @author JOANNANO
+ * Test class for custom filter.
+ */
+
 public class FilterTest extends Filter {
 
 	@Test
-	public void FilterASingleNameWithLowerCase() {
+	public void shouldFilterASingleNameWithLowerCase() {
 		// given
 		ArrayList<Person> people = new ArrayList<Person>();
 		people.add(new Person("Tomek,Momon,1980-12-22"));
@@ -30,7 +35,7 @@ public class FilterTest extends Filter {
 	}
 
 	@Test
-	public void FilterMoreThanOneName() {
+	public void shouldFilterMoreThanOneName() {
 		// given
 		ArrayList<Person> people = new ArrayList<Person>();
 		people.add(new Person("Tomek,Momon,1980-12-22"));
@@ -51,7 +56,7 @@ public class FilterTest extends Filter {
 	}
 
 	@Test
-	public void FilterToEmptyList() {
+	public void shouldFilterToEmptyList() {
 		// given
 		ArrayList<Person> people = new ArrayList<Person>();
 		people.add(new Person("Kamila,Bednarek,1999-07-02"));

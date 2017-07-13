@@ -4,6 +4,12 @@ import java.util.*;
 
 
 
+/**
+ * Class containing main method for conference list program.
+ * @author JOANNANO
+ *
+ */
+
 public class StartUp {
 
 	public static void main(String[] args)  {
@@ -19,7 +25,7 @@ public class StartUp {
 		List<List<Person>> result = segr.createLists();
 		Thing parameter = segr.getParameter();
         IOFileManager.writeFiles(result, parameter);
-        ConsolePrinter.print(result, segr.isPrintable());
+        ConsolePrinter.print(result, segr.getPrintingProperty());
         System.out.println("List(s) successfully created.");
 	}
 

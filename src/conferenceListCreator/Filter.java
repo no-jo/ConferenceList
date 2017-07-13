@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * @author JOANNANO
+ *	Filter class to create a new list from all elements' lastname beginning with given character.
+ */
 public class Filter {
 	
 	public static List<Person> selectByLastName(List<Person> people, char c) {

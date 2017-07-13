@@ -3,8 +3,17 @@ package conferenceListCreator;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * @author JOANNANO
+ * Class responsible for defining further flow of the program by creation of a segragator.
+ */
+
 public class ConferenceListSelector {
 
+	/**
+	 * @author JOANNANO
+	 * Method responsible for getting user input defining further flow of the program by creation of a segragator.
+	 */	
 	public static Segregator getSegregatorBasedOnUserInstruction(List<Person> people) {
 
 		Scanner scan = new Scanner(System.in);

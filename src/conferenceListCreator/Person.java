@@ -3,8 +3,18 @@ package conferenceListCreator;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Class reflecting each possible participant of the conference.
+ * @author JOANNANO
+ *
+ */
 public class Person implements Comparable<Person> {
 
+	
+	/**
+	 * Person constructor from a string as read directly from file. Has to satisfy condition for delimiters.
+	 * @param s
+	 */
 	public Person(String s) {
 		int pos = s.indexOf(",", 0);
 		this.name = s.substring(0, pos);
@@ -15,12 +25,12 @@ public class Person implements Comparable<Person> {
 		calculateCurrentAge();
 	}
 
-	private void calculateCurrentAge() {
-		Period per = Period.between(this.birthDate, LocalDate.now());
-		this.age = per.getYears();
-	}
 
-	// copy constructor added for lambda in filter
+	
+	/**
+	 * Copy constructor.
+	 * @param source
+	 */
 	public Person(Person source) {
 		this.name = source.name;
 		this.lastName = source.lastName;
@@ -80,6 +90,11 @@ public class Person implements Comparable<Person> {
 			return false;
 	}
 
+	private void calculateCurrentAge() {
+		Period per = Period.between(this.birthDate, LocalDate.now());
+		this.age = per.getYears();
+	}
+	
 	private String name;
 	private String lastName;
 	private LocalDate birthDate;
